@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import SiteServices from "../../../prisma/site";
+import SiteServices from "prisma/site";
 
 export default async function handler(
   req: NextApiRequest,

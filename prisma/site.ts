@@ -1,5 +1,5 @@
 import prisma from "./prisma";
-import INITIAL_SITE from "../src/data/form_initial_data.json";
+import INITIAL_SITE from "data/form_initial_data.json";
 
 export type TSite = typeof INITIAL_SITE;
 
