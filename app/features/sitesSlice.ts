@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TSite } from "../../../prisma/site";
+import { TSite } from "prisma/site";
 
 interface SitePayload {
   id: number;

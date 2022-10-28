@@ -1,6 +1,6 @@
 import { Container, Box } from "@mui/material";
 import { GetServerSideProps, NextPage } from "next";
-import SiteUtils, { TSite } from "../../prisma/site";
+import SiteUtils, { TSite } from "prisma/site";
 import FillSiteForm from "components/fill-site-form/Form";
 
 const SiteEditForm: NextPage<{ site: { id: number; data: TSite } }> = ({

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Button, Typography, Box } from "@mui/material";
 import Container from "@mui/material/Container";
-import type { TSite } from "../../../prisma/site";
+import type { TSite } from "prisma/site";
 
 import Brand from "./Brand";
 import Hero from "./Hero";
@@ -29,7 +29,7 @@ const FillSiteForm: FC<{ site?: { id: number; data: TSite } }> = ({ site }) => {
       setLoading(true);
       const modData: TSite = { ...data };
 
-      modData.pricing.plans = modData.pricing.plans.map((p) => ({
+      modData.pricing.plans = modData.pricing.plans.map((p: any) => ({
         ...p,
         price: Number(p.price),
       }));
@@ -68,10 +68,12 @@ const FillSiteForm: FC<{ site?: { id: number; data: TSite } }> = ({ site }) => {
         return images;
       })();
 
-      modData.features.items = modData.features.items.map((feature, index) => ({
-        ...feature,
-        image: images[index],
-      }));
+      modData.features.items = modData.features.items.map(
+        (feature: any, index: number) => ({
+          ...feature,
+          image: images[index],
+        })
+      );
 
       console.log(modData.features.items);
 
