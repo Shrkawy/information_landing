@@ -1,0 +1,189 @@
+.wrapper {
+  background: rgb(245, 245, 245);
+}
+.title {
+  font-family: "Cabinet Grotesk";
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 120%;
+  color: #141414;
+  text-align: center;
+  padding: 100px 15px;
+  padding-bottom: 50px;
+}
+
+.pricing {
+  width: 80%;
+  max-width: 1118px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-bottom: 100px;
+}
+
+.pricingCard {
+  background: #fffdf9;
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 4px 150px rgba(136, 136, 136, 0.4);
+}
+.normalPricing {
+  background: linear-gradient(180deg, #0173bc 0%, #22b278 100%);
+}
+.iconAndPackage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.package {
+  font-family: "Cabinet Grotesk";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #141414;
+}
+.normalPricing .package {
+  color: #fff;
+}
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  width: 42px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #0173bc 0%, #22b278 100%);
+}
+.normalPricing .iconContainer {
+  background: #22b278;
+}
+/* .icon {
+} */
+.priceAndDuration {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 30px 0;
+  padding-bottom: 25px;
+}
+.price {
+  font-family: "Cabinet Grotesk";
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #141414;
+}
+.normalPricing .price {
+  color: #fff;
+}
+.duration {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  color: #141414;
+  padding-bottom: 8px;
+}
+.normalPricing .duration {
+  color: #fff;
+}
+.tagline {
+  font-family: "Cabinet Grotesk";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+  min-height: 70px;
+}
+.service {
+  font-family: "Raleway", sans-serif;
+  color: #141414;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.normalPricing .service {
+  color: #fff;
+}
+.button {
+  border: none;
+  outline: none;
+  background: linear-gradient(180deg, #0173bc 0%, #22b278 100%);
+  border-radius: 8px;
+  padding: 11px 12px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 70px;
+  font-family: "Raleway", sans-serif;
+  color: #fffdf9;
+  font-weight: 500;
+}
+.normalPricing .button {
+  color: #0173bc;
+  background: #fffdf9;
+}
+@media only screen and (max-width: 1399px) {
+  .pricing {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .title {
+    font-size: 45px;
+    line-height: 110%;
+  }
+  .pricing {
+    width: 85%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 991px) {
+  .title {
+    font-size: 45px;
+    line-height: 110%;
+  }
+  .tagline {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .title {
+    font-size: 40px;
+    line-height: 110%;
+    padding-bottom: 70px;
+  }
+  .package {
+    font-size: 22px;
+  }
+  .iconContainer {
+    width: 36px;
+    height: 36px;
+  }
+  .icon {
+    width: 16px;
+  }
+  .pricing {
+    width: 85%;
+    grid-template-columns: 320px;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .title {
+    font-size: 36px;
+    line-height: 110%;
+    /* text-shadow: 2px 2px 150px #141414; */
+  }
+  .pricing {
+    grid-template-columns: 290px;
+  }
+}

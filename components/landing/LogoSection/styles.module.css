@@ -1,0 +1,16 @@
+.logoSection {
+  background-color: #015e99;
+  padding: 100px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  max-width: 300px;
+}
+@media only screen and (max-width: 575px) {
+  .image {
+    width: 230px;
+  }
+} ;

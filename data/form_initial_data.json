@@ -1,0 +1,66 @@
+{
+  "brand": {
+    "name": "",
+    "logo": "",
+    "favicon": ""
+  },
+  "hero": {
+    "title": "",
+    "subtitle": "",
+    "cta": {
+      "text": "",
+      "href": ""
+    },
+    "background_image": ""
+  },
+  "features": {
+    "title": "",
+    "items": [
+      {
+        "image": "",
+        "title": "",
+        "description": ""
+      }
+    ]
+  },
+  "pricing": {
+    "title": "",
+    "plans": [
+      {
+        "title": "",
+        "price": 3,
+        "description": [""],
+        "cta": {
+          "text": "",
+          "href": ""
+        }
+      },
+      {
+        "title": "",
+        "price": 2,
+        "description": [""],
+        "cta": {
+          "text": "",
+          "href": ""
+        }
+      },
+      {
+        "title": "",
+        "price": 1,
+        "description": [""],
+        "cta": {
+          "text": "",
+          "href": ""
+        }
+      }
+    ]
+  },
+  "email_collecting": {
+    "title": "",
+    "subtitle": "",
+    "cta": {
+      "text": "",
+      "href": ""
+    }
+  }
+}
