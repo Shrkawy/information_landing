@@ -1,20 +1,15 @@
+import { Site } from "@prisma/client";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TSite } from "prisma/site";
-
-interface SitePayload {
-  id: number;
-  data: TSite;
-}
 
 const siteSlice = createSlice({
   name: "sites",
   initialState: {
-    sites: [] as SitePayload[],
+    sites: [] as Site[],
     loading: false,
     error: null,
   },
   reducers: {
-    addSite: (state, action: PayloadAction<SitePayload>) => {
+    addSite: (state, action: PayloadAction<Site>) => {
       state.sites.push(action.payload);
     },
     removeSite: (state, action) => {
@@ -25,7 +20,7 @@ const siteSlice = createSlice({
         site.id === action.payload.id ? action.payload : site
       );
     },
-    addInitialData: (state, action: PayloadAction<SitePayload[]>) => {
+    addInitialData: (state, action: PayloadAction<Site[]>) => {
       state.sites = action.payload;
     },
   },

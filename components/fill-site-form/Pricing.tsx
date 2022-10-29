@@ -42,10 +42,14 @@ const Pricing = () => {
           (plan: typeof FORM_INITIAL_DATA.pricing.plans[0], index: number) => (
             <Box
               key={index}
-              sx={{
+              sx={(theme) => ({
                 display: "grid",
                 gap: 2,
-              }}
+                border: "1px solid",
+                borderColor: theme.palette.action.hover,
+                p: 2,
+                borderRadius: 1,
+              })}
             >
               <Typography variant="h5">Plan {index + 1}</Typography>
 
@@ -81,6 +85,15 @@ const Pricing = () => {
               <Button onClick={() => addDescriptionLine(index)} sx={{ px: 2 }}>
                 add new description line
               </Button>
+
+              <InputField
+                name={`pricing.plans[${index}].cta.text`}
+                label="Plan Button Text"
+              />
+              <InputField
+                name={`pricing.plans[${index}].cta.link`}
+                label="Plan Button Link"
+              />
             </Box>
           )
         )}

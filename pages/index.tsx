@@ -1,18 +1,16 @@
 import Container from "@mui/material/Container";
 import { GetServerSideProps, NextPage } from "next";
-import SiteControllers, { TSite } from "../prisma/site";
-import { Card, Typography, Box, Button } from "@mui/material";
+import SiteControllers, { SiteData } from "prisma/site";
+import { Typography, Box, Button } from "@mui/material";
 import Link from "next/link";
 import SiteCard from "components/SiteCard";
 import { useEffect } from "react";
 import { addInitialData } from "app/features/sitesSlice";
 import { useAppDispatch, useAppSelector } from "app/store";
+import { Site } from "@prisma/client";
 
 const Home: NextPage<{
-  sites: {
-    id: number;
-    data: TSite;
-  }[];
+  sites: Site[];
 }> = ({ sites: initialSites }) => {
   const dispatch = useAppDispatch();
   const { sites } = useAppSelector((state) => state.sites);
@@ -46,8 +44,20 @@ const Home: NextPage<{
       </Box>
 
       {sites.map((site) => (
-        <SiteCard id={site.id} site={site.data} key={site.id} />
+        <SiteCard id={site.id} site={site.data as SiteData} key={site.id} />
       ))}
+
+      {sites.length === 0 && (
+        <Typography
+          sx={{
+            my: 4,
+            fontSize: "2rem",
+            fontWeight: 600,
+          }}
+        >
+          You have no sites yet. Create one!
+        </Typography>
+      )}
     </Container>
   );
 };
@@ -55,11 +65,16 @@ const Home: NextPage<{
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const allSites = await SiteControllers.getMany();
+  let allSites: Site[] = [];
+  try {
+    allSites = await SiteControllers.getMany();
+  } catch (error) {
+    console.error("Get Sites Data Error: ", error);
+  }
 
   return {
     props: {
-      sites: allSites || [],
+      sites: allSites,
     },
   };
 };

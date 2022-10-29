@@ -21,8 +21,9 @@
 .iconContainer {
   min-height: 100.37px;
 }
-.icon {
+.iconContainer .icon {
   max-width: 81.37px;
+  font-size: 81.37px;
 }
 .textAndTagline {
   display: flex;
