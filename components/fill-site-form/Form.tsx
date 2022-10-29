@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Button, Typography, Box } from "@mui/material";
 import Container from "@mui/material/Container";
-import type { TSite } from "prisma/site";
+import type { SiteData } from "prisma/site";
 
 import Brand from "./Brand";
 import Hero from "./Hero";
@@ -14,8 +14,11 @@ import Link from "next/link";
 import { uploadImage } from "utils/uploadImage";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
-const FillSiteForm: FC<{ site?: { id: number; data: TSite } }> = ({ site }) => {
+const FillSiteForm: FC<{ site?: { id: number; data: SiteData } }> = ({
+  site,
+}) => {
   const [loading, setLoading] = useState(false);
 
   const methods = useForm({
@@ -27,7 +30,7 @@ const FillSiteForm: FC<{ site?: { id: number; data: TSite } }> = ({ site }) => {
   const onSubmit = async (data: any) => {
     try {
       setLoading(true);
-      const modData: TSite = { ...data };
+      const modData: SiteData = { ...data };
 
       modData.pricing.plans = modData.pricing.plans.map((p: any) => ({
         ...p,
@@ -56,27 +59,6 @@ const FillSiteForm: FC<{ site?: { id: number; data: TSite } }> = ({ site }) => {
         }
       });
 
-      const images = await (async () => {
-        const promises = data.features.items.map(async (feature: any) => {
-          if (typeof feature.image !== "string") {
-            return await uploadImage(feature.image);
-          }
-        });
-
-        const images = await Promise.all(promises);
-
-        return images;
-      })();
-
-      modData.features.items = modData.features.items.map(
-        (feature: any, index: number) => ({
-          ...feature,
-          image: images[index],
-        })
-      );
-
-      console.log(modData.features.items);
-
       if (site?.id) {
         const res = await axios.put(`/api/site/${site.id}`, modData);
         if (res.data.success) {
@@ -104,6 +86,15 @@ const FillSiteForm: FC<{ site?: { id: number; data: TSite } }> = ({ site }) => {
         component="form"
         sx={{ display: "grid", gap: 2 }}
       >
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+        </Head>
         <Box
           sx={{
             my: 4,

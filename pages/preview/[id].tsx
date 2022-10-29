@@ -1,6 +1,6 @@
 import LandingPage from "components/landing";
 import { GetServerSideProps, NextPage } from "next";
-import SiteControllers, { TSite } from "prisma/site";
+import SiteControllers, { SiteData } from "prisma/site";
 import {
   AppBar,
   Box,
@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-const Preview: NextPage<{ data: TSite; id: number }> = ({ data, id }) => {
+const Preview: NextPage<{ data: SiteData; id: number }> = ({ data, id }) => {
   console.log(data);
   return (
     <Box

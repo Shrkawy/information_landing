@@ -1,7 +1,7 @@
 import prisma from "./prisma";
 import INITIAL_SITE from "data/form_initial_data.json";
 
-export type TSite = typeof INITIAL_SITE;
+export type SiteData = typeof INITIAL_SITE;
 
 class SiteControllers {
   static async getOne(id: number) {
@@ -33,7 +33,7 @@ class SiteControllers {
     return updatedSite;
   }
 
-  static async create(site: TSite) {
+  static async create(site: SiteData) {
     const newSite = await prisma.site.create({
       data: {
         data: {

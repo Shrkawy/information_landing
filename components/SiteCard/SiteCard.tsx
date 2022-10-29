@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
-import { TSite } from "prisma/site";
+import { SiteData } from "prisma/site";
 import { Card, Box, Typography, Button, CircularProgress } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useAppDispatch } from "app/store";
 import { removeSite } from "app/features/sitesSlice";
 
-const SiteCard: FC<{ site: TSite; id: number }> = ({ site, id }) => {
+const SiteCard: FC<{ site: SiteData; id: number }> = ({ site, id }) => {
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
   const handleDelete = async () => {

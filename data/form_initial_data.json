@@ -28,7 +28,7 @@
     "plans": [
       {
         "title": "",
-        "price": 3,
+        "price": "",
         "description": [""],
         "cta": {
           "text": "",
@@ -37,7 +37,7 @@
       },
       {
         "title": "",
-        "price": 2,
+        "price": "",
         "description": [""],
         "cta": {
           "text": "",
@@ -46,7 +46,7 @@
       },
       {
         "title": "",
-        "price": 1,
+        "price": "",
         "description": [""],
         "cta": {
           "text": "",

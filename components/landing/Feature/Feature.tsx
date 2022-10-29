@@ -10,7 +10,7 @@ const Feature: FC<{ data: any }> = ({ data }) => {
         {featuresData.map((el, i) => (
           <div className={styles.feature} key={i}>
             <div className={styles.iconContainer}>
-              <img src={el.image} alt="#" className={styles.icon} />
+              <i className={`${styles.icon} fa-solid fa-${el.image}`} />
             </div>
 
             <h4 className={styles.tagline}>{el.title}</h4>
